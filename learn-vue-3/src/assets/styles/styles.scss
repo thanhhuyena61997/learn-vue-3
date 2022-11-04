@@ -1,0 +1,131 @@
+// @import './reset.scss';
+// @import 'font-hiragino-sans';
+// @import 'variables';
+// @import 'breakpoints';
+@import './tailwind.scss';
+
+body {
+  font-family: 'Hiragino Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-size: 16px;
+  @apply text-primary-600 font-light;
+  scrollbar-width: thin;
+  print-color-adjust: exact !important;
+  -webkit-print-color-adjust: exact !important;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+  // display: block;
+  // background-color: rgb(238, 238, 238);
+}
+
+::-webkit-scrollbar-thumb {
+  @apply shadow-none bg-gray-85;
+  height: 56px;
+  border-radius: 8px;
+  border: 4px solid transparent;
+  background-clip: content-box;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input {
+  /* Remove First */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+h1 {
+  @apply text-[38px] leading-[46px];
+}
+
+h2 {
+  font-size: 48px;
+  line-height: 60px;
+}
+
+h3 {
+  font-size: 38px;
+  line-height: 46px;
+}
+
+h4 {
+  font-size: 30px;
+  line-height: 38px;
+}
+
+h5 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+h6 {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+// a:hover {
+//   color: var(--cl-blue-600);
+// }
+
+// ------------- 2. Common
+
+.transformXY-50 {
+  transform: translate(-50%, -50%);
+}
+
+.transformX-50 {
+  transform: translateX(-50%);
+}
+
+.transformY-50 {
+  transform: translateY(-50%);
+}
+
+.h-fit {
+  height: fit-content;
+}
+
+.w-fit {
+  width: fit-content;
+}
+
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+@media screen {
+  #printSection {
+    display: none;
+  }
+}
+
+@media print {
+  body > *:not(#printSection) {
+    display: none;
+  }
+
+  #printSection,
+  #printSection * {
+    visibility: visible;
+  }
+  #printSection {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
