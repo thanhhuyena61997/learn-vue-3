@@ -1,0 +1,5 @@
+.not-bookmark {
+  :deep(path:last-child) {
+    fill: rgb(136, 136, 136);
+  }
+}
