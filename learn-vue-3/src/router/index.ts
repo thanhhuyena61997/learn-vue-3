@@ -16,6 +16,14 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       layout: 'default'
     }
+  },
+  {
+    path: '/responsive',
+    component: () => import('@/pages/Responsive.vue'),
+    name: 'responsive-index',
+    meta: {
+      layout: 'default'
+    }
   }
 ];
 

@@ -133,68 +133,99 @@ const carouselItems = ref<any>({
 });
 </script>
 <template>
-  <h1>Home component</h1>
-  <a-form
-    ref="formRef"
-    :model="formState"
-    :rules="rules"
-    autocomplete="off"
-    class="flex flex-col items-center"
-    name="basic"
-    @finish="handleLogin"
-  >
-    <div class="form-username mb-3">
-      <a-form-item ref="credential" class="flex relative" label="ログインID" name="credential">
-        <a-input v-model:value="formState.credential" placeholder="ログインIDを入力してください" />
+  <section id="home">
+    <h1>Home component</h1>
+    <a-form
+      ref="formRef"
+      :model="formState"
+      :rules="rules"
+      autocomplete="off"
+      class="flex flex-col items-center home-input"
+      name="basic"
+      @finish="handleLogin"
+    >
+      <div class="form-username mb-3">
+        <a-form-item ref="credential" class="flex relative" label="ログインID" name="credential">
+          <a-input
+            v-model:value="formState.credential"
+            placeholder="ログインIDを入力してください"
+          />
+        </a-form-item>
+      </div>
+      <a-form-item ref="password" class="flex password mb-8" label="パスワード" name="password">
+        <a-input v-model:value="formState.password" placeholder="パスワードを入力してください" />
       </a-form-item>
-    </div>
-    <a-form-item ref="password" class="flex password mb-8" label="パスワード" name="password">
-      <a-input v-model:value="formState.password" placeholder="パスワードを入力してください" />
-    </a-form-item>
 
-    <a-form-item>
-      <a-button class="block text-md" html-type="submit" type="primary">init pinia</a-button>
-      <a-button class="block text-md" type="primary" @click="logout">clear data</a-button>
-    </a-form-item>
-  </a-form>
-  <div>
-    <div ref="target" :style="targetStyle">
-      <!-- <pre :style="infoStyle as CSSProperties">{{ YAML.dump(parallax) }}</pre> -->
-      <div :style="containerStyle">
-        <div :style="cardStyle">
-          <div :style="cardWindowStyle">
-            <img
-              :style="layer0"
-              src="https://jaromvogel.com/images/design/jumping_rabbit/page2layer0.png"
-              alt=""
-            />
-            <img
-              :style="layer1"
-              src="https://jaromvogel.com/images/design/jumping_rabbit/page2layer1.png"
-              alt=""
-            />
-            <img
-              :style="layer2"
-              src="https://jaromvogel.com/images/design/jumping_rabbit/page2layer2.png"
-              alt=""
-            />
-            <img
-              :style="layer3"
-              src="https://jaromvogel.com/images/design/jumping_rabbit/page2layer3.png"
-              alt=""
-            />
-            <img
-              :style="layer4"
-              src="https://jaromvogel.com/images/design/jumping_rabbit/page2layer4.png"
-              alt=""
-            />
+      <a-form-item>
+        <a-button class="block text-md" html-type="submit" type="primary">init pinia</a-button>
+        <a-button class="block text-md" type="primary" @click="logout">clear data</a-button>
+      </a-form-item>
+    </a-form>
+    <div class="home__use">
+      <div ref="target" :style="targetStyle">
+        <!-- <pre :style="infoStyle as CSSProperties">{{ YAML.dump(parallax) }}</pre> -->
+        <div :style="containerStyle">
+          <div :style="cardStyle">
+            <div :style="cardWindowStyle">
+              <img
+                :style="layer0"
+                src="https://jaromvogel.com/images/design/jumping_rabbit/page2layer0.png"
+                alt=""
+              />
+              <img
+                :style="layer1"
+                src="https://jaromvogel.com/images/design/jumping_rabbit/page2layer1.png"
+                alt=""
+              />
+              <img
+                :style="layer2"
+                src="https://jaromvogel.com/images/design/jumping_rabbit/page2layer2.png"
+                alt=""
+              />
+              <img
+                :style="layer3"
+                src="https://jaromvogel.com/images/design/jumping_rabbit/page2layer3.png"
+                alt=""
+              />
+              <img
+                :style="layer4"
+                src="https://jaromvogel.com/images/design/jumping_rabbit/page2layer4.png"
+                alt=""
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <p>{{ t('signUp') }}</p>
-  <p>{{ t('name') }}</p>
-  <SVideoPlayerX :options="carouselItems.value"></SVideoPlayerX>
+    <div class="home__multi-language">
+      <p>{{ t('signUp') }}</p>
+      <p>{{ t('name') }}</p>
+    </div>
+    <SVideoPlayerX :options="carouselItems.value"></SVideoPlayerX>
+  </section>
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import '@/assets/styles/share/breakpoint.scss';
+#home {
+  @include xl {
+    padding-left: 20px;
+  }
+  .home-input {
+    @include xl {
+      align-items: flex-start;
+    }
+  }
+  .home__multi-language {
+    @include lg {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    p {
+      @include lg {
+        width: 51%;
+      }
+    }
+  }
+}
+</style>

@@ -1,0 +1,83 @@
+$screen-xs: 425px;
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+$screen-mxl: 1366px;
+$screen-xxl: 1500px;
+
+$screen-xs: 425px;
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+$screen-mxl: 1366px;
+$screen-xxl: 1500px;
+
+// small mobile
+@mixin xs {
+  @media screen and (min-width: #{$screen-xs}) {
+    @content;
+  }
+}
+
+// mobile
+@mixin sm {
+  @media screen and (min-width: #{$screen-sm}) {
+    @content;
+  }
+}
+
+// tablet
+@mixin md {
+  @media screen and (min-width: #{$screen-md}) {
+    @content;
+  }
+}
+
+// big tablet + small laptop
+@mixin lg {
+  @media screen and (min-width: #{$screen-lg}) {
+    @content;
+  }
+}
+
+// laptop
+@mixin xl {
+  @media screen and (min-width: #{$screen-xl}) {
+    @content;
+  }
+}
+
+@mixin mxl {
+  @media screen and (min-width: #{$screen-mxl}) {
+    @content;
+  }
+}
+
+// big laptop + desktop
+@mixin xxl {
+  @media screen and (min-width: #{$screen-xxl}) {
+    @content;
+  }
+}
+
+// Custom devices
+@mixin rwd($screen) {
+  @media screen and (min-width: #{$screen}) {
+    @content;
+  }
+}
+
+// device
+@mixin safari {
+  @media not all and (min-resolution: 0.001dpcm) {
+    @content;
+  }
+}
+
+@mixin firefox {
+  @-moz-document url-prefix() {
+    @content;
+  }
+}
