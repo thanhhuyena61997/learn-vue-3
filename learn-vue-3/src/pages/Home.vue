@@ -197,6 +197,12 @@ const carouselItems = ref<any>({
         </div>
       </div>
     </div>
+    <div class="test_flex-box flex">
+      <img src="https://jaromvogel.com/images/design/jumping_rabbit/page2layer3.png" alt="" />
+      <img src="https://jaromvogel.com/images/design/jumping_rabbit/page2layer3.png" alt="" />
+      <img src="https://jaromvogel.com/images/design/jumping_rabbit/page2layer3.png" alt="" />
+      <img src="https://jaromvogel.com/images/design/jumping_rabbit/page2layer3.png" alt="" />
+    </div>
     <div class="home__multi-language">
       <p>{{ t('signUp') }}</p>
       <p>{{ t('name') }}</p>
@@ -225,6 +231,12 @@ const carouselItems = ref<any>({
       @include lg {
         width: 51%;
       }
+    }
+  }
+  .test_flex-box {
+    flex-wrap: nowrap;
+    img {
+      width: 26%;
     }
   }
 }
